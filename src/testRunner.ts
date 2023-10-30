@@ -224,17 +224,17 @@ export class TestRunner {
                 if (line.startsWith("Debugger listening on ws://")) {
                     const url = line.substring("Debugger listening on ws://".length);
                     if (url) {
-                        vscode.debug.startDebugging(workspace, {
-                            type: "node",
-                            request: "attach",
-                            name: "Attach to Cucumber",
-                            address: url,
-                            localRoot: "${workspaceFolder}",
-                            remoteRoot: "${workspaceFolder}",
-                            protocol: "inspector",
-                            port: 9230,
-                            skipFiles: ["<node_internals>/**"],
-                        });
+                        vscode.debug.startDebugging(workspace, 
+                            {
+                                type: "node",
+                                request: "launch",
+                                name:"Attach to Cucumber",
+                                program: `${workspace.uri.fsPath}/node_modules/@cucumber/cucumber/bin/cucumber.js`,
+                                args: ` ${itemsOptions}`,
+                                console: "integratedTerminal",
+                                internalConsoleOptions: "openOnSessionStart"
+                            }
+                        );
                     }
                     break;
                 }
