@@ -2,7 +2,7 @@
     "name": "cucumber-test-runner",
     "displayName": "CucumberJS Test Runner",
     "description": "Allow to discover, run and debug cucumber-js tests",
-    "version": "0.5.1",
+    "version": "0.6.1",
     "publisher": "balrog994",
     "license": "MIT",
     "icon": "docs/images/logo.png",
@@ -54,7 +54,8 @@
         "lint": "eslint src --ext ts",
         "test": "node ./out/test/runTest.js",
         "download-api": "vscode-dts main && vscode-dts dev",
-        "postinstall": "npm run download-api"
+        "postinstall": "npm run download-api",
+        "cucumber": "cucumber-js"
     },
     "devDependencies": {
         "@types/glob": "^8.0.1",
@@ -63,6 +64,7 @@
         "@typescript-eslint/eslint-plugin": "^5.49.0",
         "@typescript-eslint/parser": "^5.49.0",
         "@vscode/test-electron": "^2.2.2",
+        "config": "^3.3.12",
         "esbuild": "^0.17.15",
         "eslint": "^8.33.0",
         "glob": "^8.1.0",
@@ -71,7 +73,7 @@
         "vscode-dts": "^0.3.3"
     },
     "dependencies": {
-        "@cucumber/cucumber": "^8.10.0",
+        "@cucumber/cucumber": "^10.5.1",
         "@cucumber/gherkin": "^26.0.3",
         "@cucumber/messages": "^21.0.1",
         "@rauschma/stringio": "^1.4.0"
